@@ -1,0 +1,17 @@
+proposal 1:
+
+regions are modelled by binary masks
+( we have to define a new data structure 'Region')
+
+pros:
+- very easy to evaluate the predicate (OpenCV functions accept binary masks)
+- very easy to merge (you only have to use logical '|' operator)
+- easy to detect adjacent regions (just consider a 1-pixel dilated version of the region and then use the '&' operator)
+
+cons:
+- every region has its own binary mask
+- one binary mask has the same size of the original image
+- we may have > 100,000 regions, each has a binary mask
+- RAM size (one binary mask) = 1 bytes x (rows x cols) > 1 MB
+- total RAM (peak) usage = 100,000 MB = 100 GB
+- in a more realistic case (10,000 regions) we need 10 GB

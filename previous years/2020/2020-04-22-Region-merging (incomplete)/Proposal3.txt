@@ -1,0 +1,5 @@
+proposal 3:
+
+regions are modelled by contours
+
+it is equivalent to binary masks but even less efficient

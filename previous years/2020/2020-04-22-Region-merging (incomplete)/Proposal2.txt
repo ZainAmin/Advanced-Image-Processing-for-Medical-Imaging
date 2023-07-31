@@ -1,0 +1,21 @@
+proposal 2 (VERY difficult):
+
+regions are modelled by lists of QuadTreeNode
+regions are modelled by lists of quadrants
+(we have to modify the existing data structure 'QuadTreeNode')
+
+pros:
+- no additional RAM usage
+- this should also speed up computation (RAM allocations are slow)
+
+cons:
+- it is more difficult to evaluate the predicate on a region
+  (one possible solution is to generate on-the-fly a binary mask of all quadrants in the region)
+- it is more difficult to detect adjacent regions
+ (one possible solution is to keep track of adjacent regions during splitting)
+ 
+Implementation drafts:
+       j=0   j=1
+i = 0  0     1
+i = 1  2     3
+
